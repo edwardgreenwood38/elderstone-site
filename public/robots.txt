@@ -1,0 +1,11 @@
+# Allow all crawlers to access the site
+User-agent: *
+Allow: /
+
+# Disallow specific folders that don't need to be indexed
+Disallow: /private/
+Disallow: /admin/
+Disallow: /tmp/
+
+# Reference your sitemap to help Google find your pages
+Sitemap: https://elderstonedigital.com/sitemap.xml
