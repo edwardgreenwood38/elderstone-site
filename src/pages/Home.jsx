@@ -177,7 +177,7 @@ const Home = ({ tier, setTier, darkMode }) => {
           <div className="col-md-12">
             <h4 className="text-uppercase fw-bold mb-4" style={{ color: 'var (--text-muted)', letterSpacing: '0.1em' }} >The Elderstone Advantage</h4>
 
-            <div className="row g-4">
+            <div className="row g-4 justify-content-center">
 
               {/* Security */}
               <div className="col-lg-4 col-md-6">
