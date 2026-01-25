@@ -163,7 +163,7 @@ const Home = ({ tier, setTier, darkMode }) => {
             <div className="row g-4">
 
               {/* Security */}
-              <div className="col-4">
+              <div className="col-lg-4 col-md-6">
                 <div style={{ backgroundColor: 'rgba(31, 58, 95, 0.08)', borderRadius: '12px', padding: '2rem', border: '1px solid var(--stone-blue)', borderOpacity: '0.2' }}>
                   <Shield className="mb-2" style={{ color: 'var(--stone-blue)' }} size={32} />
                   <p className="fw-bold small mb-3" style={{ color: 'var(--text-main)' }}>
@@ -189,7 +189,7 @@ const Home = ({ tier, setTier, darkMode }) => {
               </div>
 
               {/* Performance */}
-              <div className="col-4">
+              <div className="col-lg-4 col-md-6">
                 <div style={{ backgroundColor: 'rgba(31, 58, 95, 0.08)', borderRadius: '12px', padding: '2rem', border: '1px solid var(--stone-blue)', borderOpacity: '0.2' }}>
                   <Zap className="mb-2" style={{ color: 'var(--stone-blue)' }} size={32} />
                   <p className="fw-bold small mb-0" style={{ color: 'var(--text-main)' }}>
@@ -215,7 +215,7 @@ const Home = ({ tier, setTier, darkMode }) => {
               </div>
 
               {/* Growth */}
-              <div className="col-4">
+              <div className="col-lg-4 col-md-6">
                 <div style={{ backgroundColor: 'rgba(31, 58, 95, 0.08)', borderRadius: '12px', padding: '2rem', border: '1px solid var(--stone-blue)', borderOpacity: '0.2' }}>
                   <TrendingUp className="mb-2" style={{ color: 'var(--stone-blue)' }} size={32} />
                   <p className="fw-bold small mb-0" style={{ color: 'var(--text-main)' }}>
