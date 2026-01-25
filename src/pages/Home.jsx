@@ -260,10 +260,21 @@ const Home = ({ tier, setTier, darkMode }) => {
       </section>
 
       {/* Follow up */}
-      <section className="container py-5" style={{ backgroundColor: 'var(--bg-card)' }}>
+      <section className="container py-3 border-top" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="row justify-content-center">
           <div className="col-md-5">
             <div className="py-5 text-center">
+                  
+                  <h2 className="fw-bold mb-3" style={{ color: 'var(--text-main)' }}>No Surprise Fees</h2>
+                  <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '1.1rem' }}>Traditional agencies charge:</p>
+                      <ul style={{ listStyleType: 'disc', paddingLeft: '3.5rem', marginTop: '1rem', textAlign: 'start' }}>
+                        <li style={{ marginBottom: '0.5rem' }}>Large upfront builds</li>
+                        <li style={{ marginBottom: '0.5rem' }}>Hourly rates for every change</li>
+                        <li style={{ marginBottom: '0.5rem' }}>Unpredictable maintenance costs</li>
+                      </ul>
+                  <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '1.1rem' }}>Elderstone bundles everything into one clear monthly price.</p>
+                  <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '1.1rem' }}>If something falls outside your plan, we’ll tell you before doing the work.</p>
+
 
                   <h2 className="fw-bold mb-3" style={{ color: 'var(--text-main)' }}>Still Comparing Options?</h2>
                   <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '1.1rem' }}>Ask yourself:</p>
