@@ -266,28 +266,28 @@ const Home = ({ tier, setTier, darkMode }) => {
             <div className="py-5 text-center">
                   
                   <h2 className="fw-bold mb-3" style={{ color: 'var(--text-main)' }}>No Surprise Fees</h2>
-                  <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '1.1rem' }}>Traditional agencies charge:</p>
+                  <p className="text-start" style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '1.1rem' }}>Traditional agencies charge:</p>
                       <ul style={{ listStyleType: 'disc', paddingLeft: '3.5rem', marginTop: '1rem', textAlign: 'start' }}>
                         <li style={{ marginBottom: '0.5rem' }}>Large upfront builds</li>
                         <li style={{ marginBottom: '0.5rem' }}>Hourly rates for every change</li>
                         <li style={{ marginBottom: '0.5rem' }}>Unpredictable maintenance costs</li>
                       </ul>
-                  <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '1.1rem' }}>Elderstone bundles everything into one clear monthly price.</p>
-                  <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '1.1rem' }}>If something falls outside your plan, we’ll tell you before doing the work.</p>
+                  <p className="text-start" style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '1.1rem' }}>Elderstone bundles everything into one clear monthly price.</p>
+                  <p className="text-start" style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '1.1rem' }}>If something falls outside your plan, we’ll tell you before doing the work.</p>
 
 
                   <h2 className="fw-bold mb-3" style={{ color: 'var(--text-main)' }}>Still Comparing Options?</h2>
-                  <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '1.1rem' }}>Ask yourself:</p>
+                  <p className="text-start" style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '1.1rem' }}>Ask yourself:</p>
                     <ul style={{ listStyleType: 'disc', paddingLeft: '3.5rem', marginTop: '1rem', textAlign: 'start' }}>
                       <li style={{ marginBottom: '0.5rem' }}>Who is responsible if the site goes down?</li>
                       <li style={{ marginBottom: '0.5rem' }}>Who updates it and keeps it secure?</li>
                       <li style={{ marginBottom: '0.5rem' }}>Who fixes issues when something breaks?</li>
                       <li style={{ marginBottom: '0.5rem' }}>Who makes changes as your business evolves?</li>
                     </ul>
-                  <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '1.1rem' }}> That’s what our pricing covers.</p>
+                  <p className="text-start" style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '1.1rem' }}> That’s what our pricing covers.</p>
 
                   <h2 className="fw-bold mb-3" style={{ color: 'var(--text-main)' }}>Simple. Predictable. Managed.</h2>
-                  <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '1.1rem' }}>Your website, handled.</p>
+                  <p className="text start" style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '1.1rem' }}>Your website, handled.</p>
 
                   <hr className="my-4" />
 
