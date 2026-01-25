@@ -1,6 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-const Contact = ({ darkMode, setDarkMode}) => (
+const Contact = ({ darkMode, setDarkMode}) => {
+  useEffect(() => {
+    // Read theme from query parameter
+    const params = new URLSearchParams(window.location.search);
+    const themeParam = params.get('theme');
+    
+    if (themeParam === 'dark' && !darkMode) {
+      setDarkMode(true);
+    } else if (themeParam === 'light' && darkMode) {
+      setDarkMode(false);
+    }
+  }, [darkMode, setDarkMode]);
+
+  return (
   <div className="container py-5">
     <div className="row justify-content-center">
       <div className="col-lg-6 col-md-8">
@@ -35,6 +48,7 @@ const Contact = ({ darkMode, setDarkMode}) => (
       </div>
     </div>
   </div>
-);
+  );
+};
 
 export default Contact;

@@ -34,7 +34,7 @@ function App() {
         */}
         <main className="flex-grow-1">
           <Routes>
-            <Route path="/" element={<Home tier={tier} setTier={setTier} />} />
+            <Route path="/" element={<Home tier={tier} setTier={setTier} darkMode={darkMode} />} />
             <Route path="/about" element={<About tier={tier} darkMode={darkMode} setDarkMode={setDarkMode} />} />
             <Route path="/services" element={<Services tier={tier} darkMode={darkMode} setDarkMode={setDarkMode} />} />
             <Route path="/contact" element={<Contact tier={tier} darkMode={darkMode} setDarkMode={setDarkMode} />} />

@@ -6,7 +6,7 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 
 const STRAPI_URL = "http://localhost:1337";
 
-const Home = ({ tier, setTier }) => {
+const Home = ({ tier, setTier, darkMode }) => {
   const [cmsData, setCmsData] = useState({
     heroTitle: "Managed Digital Excellence Built Like Stone.", 
     heroDescription: null // Initialized as null to handle conditional rendering
@@ -241,6 +241,38 @@ const Home = ({ tier, setTier }) => {
           </div>
         </div>
       </section>
+
+      {/* Follow up */}
+      <section className="container py-5" style={{ backgroundColor: 'var(--bg-card)' }}>
+        <div className="row justify-content-center">
+          <div className="col-md-5">
+            <div className="py-5 text-center">
+
+                  <h2 className="fw-bold mb-3" style={{ color: 'var(--text-main)' }}>Still Comparing Options?</h2>
+                  <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '1.1rem' }}>Ask yourself:</p>
+                    <ul style={{ listStyleType: 'disc', paddingLeft: '3.5rem', marginTop: '1rem', textAlign: 'start' }}>
+                      <li style={{ marginBottom: '0.5rem' }}>Who is responsible if the site goes down?</li>
+                      <li style={{ marginBottom: '0.5rem' }}>Who updates it and keeps it secure?</li>
+                      <li style={{ marginBottom: '0.5rem' }}>Who fixes issues when something breaks?</li>
+                      <li style={{ marginBottom: '0.5rem' }}>Who makes changes as your business evolves?</li>
+                    </ul>
+                  <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '1.1rem' }}> That’s what our pricing covers.</p>
+
+                  <h2 className="fw-bold mb-3" style={{ color: 'var(--text-main)' }}>Simple. Predictable. Managed.</h2>
+                  <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '1.1rem' }}>Your website, handled.</p>
+
+                  <hr className="my-4" />
+
+                  <p className="lead opacity-75 mb-4" style={{ color: 'var(--text-muted)' }}>Get in touch today to discuss your project and see how we can help.</p>
+                  <button className="btn btn-lg px-4 py-3 shadow" onClick={() => window.location.href = `/contact?theme=${darkMode ? 'dark' : 'light'}`} style={{ backgroundColor: 'var(--copper)', color: 'white', fontWeight: '700' }}>
+                    Contact Us
+                  </button>
+
+                </div>
+            </div>
+        </div>
+      </section>
+      
 
     </div>
   );
