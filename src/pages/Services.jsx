@@ -1,12 +1,31 @@
 import React from 'react';
-import { Shield, Zap, Globe, Cpu } from 'lucide-react';
+import { Shield, Zap, Server, Database, Wrench, TrendingUp } from 'lucide-react';
 
 const Services = ({ darkMode, setDarkMode}) => {
   const serviceList = [
-    { icon: <Shield />, title: "Security Hardening", desc: "Firewall management, malware scanning, and SSL certificate maintenance." },
-    { icon: <Zap />, title: "Speed Optimization", desc: "Global CDN integration and core web vitals performance tuning." },
-    { icon: <Globe />, title: "Managed Hosting", desc: "Cloud-based infrastructure with 99.9% uptime guarantees." },
-    { icon: <Cpu />, title: "Digital Strategy", desc: "Monthly strategy check-ins to align technology with your business goals." }
+    { icon: <Shield />, 
+      title: "Security & Uptime Protection", 
+      desc: "Firewall hardening, malware detection, SSL automation & proactive uptime monitoring." },
+
+    { icon: <Zap />, 
+      title: "Performance Engineering", 
+      desc: "Global CDN, speed tuning, core web vitals optimization, and performance audits." },
+
+    { icon: <Server />, 
+      title: "Managed Web Infrastructure", 
+      desc: "Cloud hosting, environment provisioning, scaling support, and 99.9% uptime assurance." },
+
+    { icon: <Database />, 
+      title: "Database & Backend Management", 
+      desc: "Secure PostgreSQL provisioning, maintenance, backups and API process orchestration." },
+
+    { icon: <Wrench />, 
+      title: "Continuous Deployment & Automation", 
+      desc: "Automated builds, PM2 orchestration, Nginx reverse proxy configs, and zero-downtime updates." },
+
+    { icon: <TrendingUp />, 
+      title: "Growth & Digital Strategy", 
+      desc: "Monthly strategy syncs, analytics reporting, growth planning, and conversion optimization." }
   ];
 
   return (

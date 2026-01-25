@@ -52,16 +52,25 @@ const Home = ({ tier, setTier, darkMode }) => {
   const plans = [
     { name: 'Starter', 
       price: '149', 
-      description: 'Essential maintenance and security.', 
-      features: ['Secure Managed Hosting', 'Daily Cloud Backups', '1 Content Edit Per Month', 'Standard Security Patching'] },
+      description: 'Stability & protection for small businesses', 
+      listTitle: 'Includes:',
+      features: ['Up to 5 pages (Home, About, Services, Contact, +1 custom page)', 'Secure managed cloud hosting', 'SSL certificates & standard security hardening', 'Daily cloud backups & uptime monitoring', 'Performance optimization (Core Web Vitals)', '1 content update per month', 'Email support'],
+      footerTitle: 'Best for:',
+      footerDesc: 'businesses that need a professional, reliable website without ongoing complexity.' },
     { name: 'Growth', 
       price: '249', 
-      description: 'Performance and reporting for growing footprints.', 
-      features: ['Everything in Starter', 'Monthly Health Reports', '3 Content Edits Per Month', 'Speed Optimization Tuning'] },
+      listTitle: 'Everything in Starter, plus:',
+      description: 'Performance & lead generation for growing businesses', 
+      features: ['Up to 10 pages', 'Advanced speed & performance tuning', 'SEO & analytics setup', 'Contact forms & lead routing', '3 content updates per month', 'Monthly site health report', 'Monthly strategy check-in'],
+      footerTitle: 'Best for:',
+      footerDesc: 'businesses using their website to attract leads and make regular updates.' },
     { name: 'Pro', 
       price: '399', 
+      listTitle: 'Everything in Growth, plus:',
       description: 'Advanced security and strategy for enterprises.', 
-      features: ['Everything in Growth', 'Advanced Security Hardening', '6 Content Edits Per Month', 'Monthly Strategy Check-ins'] }
+      features: ['Unlimited pages', 'Priority support', 'Advanced security hardening', 'Backend & database management (PostgreSQL)', 'Automated deployments & zero-downtime updates', 'Integrations & custom workflows', '6 content updates per month'],
+      footerTitle: 'Best for:',
+      footerDesc: 'businesses that rely on their website for operations, revenue, or automation.' }
   ];
 
   return (
@@ -118,13 +127,17 @@ const Home = ({ tier, setTier, darkMode }) => {
                 }}
               >
                 <div className="card-body p-4">
-                  <h3 className="fw-bold mb-2" style={{ color: 'var(--text-main)' }}>{plan.name}</h3>
-                  <p className="small mb-4" style={{ color: 'var(--text-muted)' }}>{plan.description}</p>
+                  <h3 className="display-6 fw-bold mb-2" style={{ color: 'var(--text-main)' }}>{plan.name}</h3>
+                  <p className="mb-4 fw-bold" style={{ color: 'var(--text-muted)' }}>{plan.description}</p>
                   
                   <div className="mb-4">
                     {/* Use Stone Blue for price in Light mode, but White/Off-White in Dark mode for better contrast */}
                     <span className="display-4 fw-bold" style={{ color: 'var(--text-main)' }}>${plan.price}</span>
                     <span style={{ color: 'var(--text-muted)' }}>/mo</span>
+                  </div>
+
+                  <div className='text-start'>
+                    <span className='fw-bold' style={{ color: 'var(--text-main)' }}>{plan.listTitle}</span>
                   </div>
 
                   <ul className="list-unstyled mb-5 text-start">
@@ -135,6 +148,10 @@ const Home = ({ tier, setTier, darkMode }) => {
                       </li>
                     ))}
                   </ul>
+
+                  <div className='mb-4'>
+                    <span className="fw-bold" style={{ color: 'var(--text-main)' }}>{plan.footerTitle}</span> {plan.footerDesc}
+                  </div>
 
                   <button 
                     onClick={() => setTier(plan.name)} 
@@ -158,7 +175,7 @@ const Home = ({ tier, setTier, darkMode }) => {
       <section className="container py-5 text-center border-top">
         <div className="row justify-content-center">
           <div className="col-md-12">
-            <h4 className="text-uppercase small fw-bold mb-4" style={{ color: 'var (--text-muted)', letterSpacing: '0.1em' }} >The Elderstone Advantage</h4>
+            <h4 className="text-uppercase fw-bold mb-4" style={{ color: 'var (--text-muted)', letterSpacing: '0.1em' }} >The Elderstone Advantage</h4>
 
             <div className="row g-4">
 
@@ -171,18 +188,18 @@ const Home = ({ tier, setTier, darkMode }) => {
                   </p>
 
                   <div style={{ textAlign: 'left' }}>
-                    <p style={{ color: 'var(--text-muted)', marginBottom: '1rem', fontSize: '0.95rem' }}>Your website is protected, monitored, and maintained—every day.</p>
-                    <p style={{ color: 'var(--text-main)', fontSize: '0.95rem', marginBottom: '1.25rem' }}>Most websites don't fail because of bad design. They fail because no one is responsible for maintaining them.</p>
+                    <p style={{ color: 'var(--text-muted)', marginBottom: '1rem', fontSize: '0.95rem' }}>Your website is protected, monitored, and maintained — every day.</p>
+                    <p style={{ color: 'var(--text-main)', fontSize: '0.95rem', marginBottom: '1.25rem' }}>Most websites don’t fail because of bad design. They fail because no one is responsible for maintaining them.</p>
                     <p style={{ color: 'var(--text-main)', fontWeight: '600', marginBottom: '0.75rem', fontSize: '0.95rem' }}>Every Elderstone plan includes:</p>
                       <ul style={{ color: 'var(--text-muted)', paddingLeft: '1.25rem', marginBottom: '1.25rem', fontSize: '0.95rem' }}>
                           <li style={{ marginBottom: '0.5rem' }}>Secure, professionally managed hosting</li>
                           <li style={{ marginBottom: '0.5rem' }}>Ongoing software and security updates</li>
                           <li style={{ marginBottom: '0.5rem' }}>Monitoring, backups, and uptime checks</li>
-                          <li style={{ marginBottom: '0.5rem' }}>Active protection against common failures and breakages</li>
-                          <li style={{ marginBottom: '0.5rem' }}>A team accountable for keeping your site online and working</li>
+                          <li style={{ marginBottom: '0.5rem' }}>Active protection against common failures</li>
+                          <li style={{ marginBottom: '0.5rem' }}>A team accountable for keeping your site online</li>
                       </ul>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '1rem' }}>This is why our plans are monthly—your website isn't a one-time project. It's a system that needs ongoing care.</p>
-                    <p style={{ color: 'var(--text-main)', fontWeight: '600', fontSize: '0.95rem' }}>DIY platforms and one-off builds leave security in your hands. We don't.</p>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '1rem' }}>DIY platforms and one-off builds leave security in your hands. We don’t.</p>
+                    {/* <p style={{ color: 'var(--text-main)', fontWeight: '600', fontSize: '0.95rem' }}>DIY platforms and one-off builds leave security in your hands. We don't.</p> */}
                     </div>
                 </div>
 
@@ -197,18 +214,18 @@ const Home = ({ tier, setTier, darkMode }) => {
                   </p>
 
                   <div style={{ textAlign: 'left' }}>
-                    <p style={{ color: 'var(--text-muted)', marginBottom: '1rem', fontSize: '0.95rem' }}>Built on proven frameworks, optimized for reliability—not experimentation.</p>
-                    <p style={{ color: 'var(--text-main)', fontSize: '0.95rem', marginBottom: '1.25rem' }}>We use professional, battle-tested frameworks and customize them for your business instead of rebuilding from scratch every time.</p>
-                    <p style={{ color: 'var(--text-main)', fontWeight: '600', marginBottom: '0.75rem', fontSize: '0.95rem' }}>This allows us to:</p>
+                    <p style={{ color: 'var(--text-muted)', marginBottom: '1rem', fontSize: '0.95rem' }}>Built on proven frameworks, optimized for reliability — not experimentation.</p>
+                    <p style={{ color: 'var(--text-main)', fontSize: '0.95rem', marginBottom: '1.25rem' }}>We use battle-tested systems and customize them for your business instead of rebuilding from scratch each time. This allows us to:</p>
+                    {/* <p style={{ color: 'var(--text-main)', fontWeight: '600', marginBottom: '0.75rem', fontSize: '0.95rem' }}>This allows us to:</p> */}
                       <ul style={{ color: 'var(--text-muted)', paddingLeft: '1.25rem', marginBottom: '1.25rem', fontSize: '0.95rem' }}>
                           <li style={{ marginBottom: '0.5rem' }}>Launch faster</li>
                           <li style={{ marginBottom: '0.5rem' }}>Reduce bugs and downtime</li>
                           <li style={{ marginBottom: '0.5rem' }}>Keep costs predictable</li>
                           <li style={{ marginBottom: '0.5rem' }}>Maintain and update sites reliably over time</li>
                       </ul>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '1rem' }}>You’re not paying for experimentation—you’re paying for stability.</p>
-                    <p style={{ color: 'var(--text-main)', fontSize: '0.95rem' }}>Our plans also eliminate unpredictable agency billing. No hourly invoices. No surprise charges.</p>
-                    <p style={{ color: 'var(--text-main)', fontWeight: '600', fontSize: '0.95rem' }}>Everything you need to keep your site running smoothly is bundled into one clear monthly price. If something falls outside your plan, we’ll tell you before doing the work.</p>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '1rem' }}>You’re not paying for experimentation — you’re paying for stability.</p>
+                    {/* <p style={{ color: 'var(--text-main)', fontSize: '0.95rem' }}>Our plans also eliminate unpredictable agency billing. No hourly invoices. No surprise charges.</p>
+                    <p style={{ color: 'var(--text-main)', fontWeight: '600', fontSize: '0.95rem' }}>Everything you need to keep your site running smoothly is bundled into one clear monthly price. If something falls outside your plan, we’ll tell you before doing the work.</p> */}
                   </div>
 
                 </div>
@@ -223,16 +240,16 @@ const Home = ({ tier, setTier, darkMode }) => {
                   </p>
 
                   <div style={{ textAlign: 'left' }}>
-                    <p style={{ color: 'var(--text-muted)', marginBottom: '1rem', fontSize: '0.95rem' }}>Right-sized plans that scale as your business does.</p>
-                    <p style={{ color: 'var(--text-main)', fontSize: '0.95rem', marginBottom: '1.25rem' }}>Your website should support your business—not hold it back.</p>
-                    <p style={{ color: 'var(--text-main)', fontWeight: '600', marginBottom: '0.75rem', fontSize: '0.95rem' }}>Each plan is designed to match how critical your website is to your operations:</p>
+                    <p style={{ color: 'var(--text-muted)', marginBottom: '1rem', fontSize: '0.95rem' }}>Right-sized plans that scale with your business.</p>
+                    <p style={{ color: 'var(--text-main)', fontSize: '0.95rem', marginBottom: '1.25rem' }}>Your website should support your business — not hold it back.</p>
+                    {/* <p style={{ color: 'var(--text-main)', fontWeight: '600', marginBottom: '0.75rem', fontSize: '0.95rem' }}>Each plan is designed to match how critical your website is to your operations:</p> */}
                       <ul style={{ color: 'var(--text-muted)', paddingLeft: '1.25rem', marginBottom: '1.25rem', fontSize: '0.95rem' }}>
                           <li style={{ marginBottom: '0.5rem' }}><span style={{ fontWeight: '600' }}>Starter</span> keeps your site stable, secure, and protected</li>
-                          <li style={{ marginBottom: '0.5rem' }}><span style={{ fontWeight: '600' }}>Growth</span> supports lead generation, updates, and ongoing changes</li>
-                          <li style={{ marginBottom: '0.5rem' }}><span style={{ fontWeight: '600' }}>Pro</span> supports revenue-critical sites, automation, and integrations</li>
+                          <li style={{ marginBottom: '0.5rem' }}><span style={{ fontWeight: '600' }}>Growth</span> supports lead generation, reporting, and ongoing changes</li>
+                          <li style={{ marginBottom: '0.5rem' }}><span style={{ fontWeight: '600' }}>Pro</span> supports revenue-critical systems, automation, and integrations</li>
                       </ul>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '1rem' }}>As your business grows, your website can grow with it—without rebuilding or switching providers.</p>
-                    <p style={{ color: 'var(--text-main)', fontWeight: '600', fontSize: '0.95rem' }}>Our long-term model only works if your site stays online, performs well, and continues to deliver value month after month. That’s why we focus on ongoing management instead of one-off projects.</p>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '1rem' }}>As your business grows, your website can grow with it — without rebuilding or switching providers.</p>
+                    {/* <p style={{ color: 'var(--text-main)', fontWeight: '600', fontSize: '0.95rem' }}>Our long-term model only works if your site stays online, performs well, and continues to deliver value month after month. That’s why we focus on ongoing management instead of one-off projects.</p> */}
                   </div>
                 </div>
               </div>
