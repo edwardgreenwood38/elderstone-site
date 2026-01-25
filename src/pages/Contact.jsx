@@ -2,16 +2,16 @@ import React, { useEffect } from 'react';
 
 const Contact = ({ darkMode, setDarkMode}) => {
   useEffect(() => {
-    // Read theme from query parameter
+    // Read theme from query parameter on mount
     const params = new URLSearchParams(window.location.search);
     const themeParam = params.get('theme');
     
-    if (themeParam === 'dark' && !darkMode) {
+    if (themeParam === 'dark') {
       setDarkMode(true);
-    } else if (themeParam === 'light' && darkMode) {
+    } else if (themeParam === 'light') {
       setDarkMode(false);
     }
-  }, [darkMode, setDarkMode]);
+  }, [setDarkMode]);
 
   return (
   <div className="container py-5">
