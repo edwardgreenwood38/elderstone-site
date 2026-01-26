@@ -100,7 +100,7 @@ const Home = ({ tier, setTier, darkMode }) => {
             <button className="btn btn-lg px-4 py-3 shadow" style={{ backgroundColor: 'var(--copper)', color: 'white', fontWeight: '700' }}>
               Start Your Plan
             </button>
-            <button className="btn btn-lg px-4 py-3 btn-outline-light">
+            <button className="btn btn-lg px-4 py-3 btn-outline-light" onClick={() => window.location.href = `/services?theme=${darkMode ? 'dark' : 'light'}`}>
               View All Services
             </button>
           </div>

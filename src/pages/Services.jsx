@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Shield, Zap, Server, Database, Wrench, TrendingUp } from 'lucide-react';
 
 const Services = ({ darkMode, setDarkMode}) => {
+  useEffect(() => {
+    // Read theme from query parameter on mount
+    const params = new URLSearchParams(window.location.search);
+    const themeParam = params.get('theme');
+    
+    if (themeParam === 'dark') {
+      setDarkMode(true);
+    } else if (themeParam === 'light') {
+      setDarkMode(false);
+    }
+  }, [setDarkMode]);
   const serviceList = [
     { icon: <Shield />, 
       title: "Security & Uptime Protection", 
