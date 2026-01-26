@@ -182,7 +182,7 @@ const Home = ({ tier, setTier, darkMode }) => {
               {/* Security */}
               <div className="col-lg-4 col-md-6">
                 <div style={{ backgroundColor: 'rgba(31, 58, 95, 0.08)', borderRadius: '12px', padding: '2rem', border: '1px solid var(--stone-blue)', borderOpacity: '0.2' }}>
-                  <Shield className="mb-2" style={{ color: 'var(--stone-blue)' }} size={32} />
+                  <Shield className="mb-2" style={{ color: 'var(--copper)' }} size={32} />
                   <p className="fw-bold small mb-3" style={{ color: 'var(--text-main)' }}>
                     Security
                   </p>
@@ -208,7 +208,7 @@ const Home = ({ tier, setTier, darkMode }) => {
               {/* Performance */}
               <div className="col-lg-4 col-md-6">
                 <div style={{ backgroundColor: 'rgba(31, 58, 95, 0.08)', borderRadius: '12px', padding: '2rem', border: '1px solid var(--stone-blue)', borderOpacity: '0.2' }}>
-                  <Zap className="mb-2" style={{ color: 'var(--stone-blue)' }} size={32} />
+                  <Zap className="mb-2" style={{ color: 'var(--copper)' }} size={32} />
                   <p className="fw-bold small mb-0" style={{ color: 'var(--text-main)' }}>
                     Performance
                   </p>
@@ -234,7 +234,7 @@ const Home = ({ tier, setTier, darkMode }) => {
               {/* Growth */}
               <div className="col-lg-4 col-md-6">
                 <div style={{ backgroundColor: 'rgba(31, 58, 95, 0.08)', borderRadius: '12px', padding: '2rem', border: '1px solid var(--stone-blue)', borderOpacity: '0.2' }}>
-                  <TrendingUp className="mb-2" style={{ color: 'var(--stone-blue)' }} size={32} />
+                  <TrendingUp className="mb-2" style={{ color: 'var(--copper)' }} size={32} />
                   <p className="fw-bold small mb-0" style={{ color: 'var(--text-main)' }}>
                     Growth
                   </p>
@@ -259,13 +259,15 @@ const Home = ({ tier, setTier, darkMode }) => {
         </div>
       </section>
 
+      <hr className="my-2 px-5" style={{ borderColor: 'var(--stone-blue)' }} />
+
       {/* Follow up */}
-      <section className="container py-3 border-top" style={{ backgroundColor: 'var(--bg-card)' }}>
+      <section className="container my-5">
         <div className="row justify-content-center">
-          <div className="col-md-5">
-            <div className="py-5 text-center">
+          <div className="col-md-5 border rounded p-4" style={{ backgroundColor: 'rgba(192, 122, 44, 0.06)', borderColor: 'var(--border-color)' }}>
+            <div className="py-3 text-center">
                   
-                  <h2 className="fw-bold mb-3" style={{ color: 'var(--text-main)' }}>No Surprise Fees</h2>
+                  <h2 className="fw-bold mb-3" style={{ color: 'var(--stone-blue)' }}>No Surprise Fees</h2>
                   <p className="text-start" style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '1.1rem' }}>Traditional agencies charge:</p>
                       <ul style={{ listStyleType: 'disc', paddingLeft: '3.5rem', marginTop: '1rem', textAlign: 'start' }}>
                         <li style={{ marginBottom: '0.5rem' }}>Large upfront builds</li>
@@ -275,8 +277,9 @@ const Home = ({ tier, setTier, darkMode }) => {
                   <p className="text-start" style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '1.1rem' }}>Elderstone bundles everything into one clear monthly price.</p>
                   <p className="text-start" style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '1.1rem' }}>If something falls outside your plan, we’ll tell you before doing the work.</p>
 
+                  <hr className="my-3 px-5" style={{ color: 'var(--stone-blue)' }} />
 
-                  <h2 className="fw-bold mb-3" style={{ color: 'var(--text-main)' }}>Still Comparing Options?</h2>
+                  <h2 className="fw-bold mb-3" style={{ color: 'var(--stone-blue)' }}>Still Comparing Options?</h2>
                   <p className="text-start" style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '1.1rem' }}>Ask yourself:</p>
                     <ul style={{ listStyleType: 'disc', paddingLeft: '3.5rem', marginTop: '1rem', textAlign: 'start' }}>
                       <li style={{ marginBottom: '0.5rem' }}>Who is responsible if the site goes down?</li>
@@ -286,10 +289,12 @@ const Home = ({ tier, setTier, darkMode }) => {
                     </ul>
                   <p className="text-start" style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '1.1rem' }}> That’s what our pricing covers.</p>
 
-                  <h2 className="fw-bold mb-3" style={{ color: 'var(--text-main)' }}>Simple. Predictable. Managed.</h2>
+                  <hr className="my-3 px-5" style={{ color: 'var(--stone-blue)' }} />
+
+                  <h2 className="fw-bold mb-3" style={{ color: 'var(--stone-blue)' }}>Simple. Predictable. Managed.</h2>
                   <p className="text start" style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '1.1rem' }}>Your website, handled.</p>
 
-                  <hr className="my-4" />
+                  <hr className="my-5" />
 
                   <p className="lead opacity-75 mb-4" style={{ color: 'var(--text-muted)' }}>Get in touch today to discuss your project and see how we can help.</p>
                   <button className="btn btn-lg px-4 py-3 shadow" onClick={() => window.location.href = `/contact?theme=${darkMode ? 'dark' : 'light'}`} style={{ backgroundColor: 'var(--copper)', color: 'white', fontWeight: '700' }}>
