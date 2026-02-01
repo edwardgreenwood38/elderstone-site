@@ -11,7 +11,7 @@ const Footer = () => {
           
           {/* Social Media Icons using Bootstrap Icon classes */}
           <div className="col d-flex justify-content-center gap-4 mb-4">
-            <a href="https://facebook.com" className="text-decoration-none" target="_blank" rel="noreferrer">
+            <a href="https://www.facebook.com/profile.php?id=61587107678345" className="text-decoration-none" target="_blank" rel="noreferrer">
               <i className="bi bi-facebook fs-4" style={{ color: 'var(--stone-blue)' }}></i>
             </a>
             <a href="https://linkedin.com" className="text-decoration-none" target="_blank" rel="noreferrer">

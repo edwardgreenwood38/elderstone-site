@@ -154,7 +154,7 @@ const Home = ({ tier, setTier, darkMode }) => {
                   </div>
 
                   <button 
-                    onClick={() => setTier(plan.name)} 
+                    onClick={() => { setTier(plan.name); window.location.href = `/onboarding?tier=${encodeURIComponent(plan.name)}&theme=${darkMode ? 'dark' : 'light'}` }} 
                     className="btn w-100 py-3 fw-bold" 
                     style={{ 
                       backgroundColor: tier === plan.name ? 'var(--stone-blue)' : 'transparent', 

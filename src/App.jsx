@@ -8,6 +8,7 @@ import Services from './pages/Services';
 import Contact from './pages/Contact';
 import BlankStatic from './pages/BlankStatic';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import IntakeWizard from './pages/IntakeWizard';
 import './App.css';
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
             <Route path="/contact" element={<Contact tier={tier} darkMode={darkMode} setDarkMode={setDarkMode} />} />
             <Route path="/billing" element={<BlankStatic tier={tier} darkMode={darkMode} setDarkMode={setDarkMode} />} />
             <Route path="/privacy" element={<PrivacyPolicy tier={tier} darkMode={darkMode} setDarkMode={setDarkMode}/>} />
+            <Route path="/onboarding" element={<IntakeWizard tier={tier} darkMode={darkMode} setDarkMode={setDarkMode} setTier={setTier} />} />
           </Routes>
         </main>
 
