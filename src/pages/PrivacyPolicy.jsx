@@ -89,7 +89,7 @@ const PrivacyPolicy = ({ tier }) => {
                 If you have questions about this Privacy Policy, please contact:<br />
                 <strong>Elderstone Digital Solutions, LLC</strong><br />
                 Email: <a href="mailto:info@elderstonedigital.com" style={{ color: 'var(--copper)' }}>info@elderstonedigital.com</a><br />
-                Website: <a href="https://elderstonedigital.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--copper)' }}>elderstonedigital.com</a>
+                Website: <a href="https://www.elderstonedigitalsolutions.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--copper)' }}>elderstonedigital.com</a>
               </p>
             </section>
           </div>
