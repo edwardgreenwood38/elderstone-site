@@ -12,6 +12,8 @@ const Home = ({ tier, setTier, darkMode }) => {
     heroDescription: null // Initialized as null to handle conditional rendering
   });
   const [loading, setLoading] = useState(true);
+  const [hoveredPlan, setHoveredPlan] = useState(null);
+  const [selectedPlanModal, setSelectedPlanModal] = useState(null);
 
   useEffect(() => {
     const fetchHomeContent = async () => {
@@ -56,21 +58,39 @@ const Home = ({ tier, setTier, darkMode }) => {
       listTitle: 'Includes:',
       features: ['Up to 5 pages (Home, About, Services, Contact, +1 custom page)', 'Secure managed cloud hosting', 'SSL certificates & standard security hardening', 'Daily cloud backups & uptime monitoring', 'Performance optimization (Core Web Vitals)', '1 content update per month', 'Email support'],
       footerTitle: 'Best for:',
-      footerDesc: 'businesses that need a professional, reliable website without ongoing complexity.' },
+      footerDesc: 'businesses that need a professional, reliable website without ongoing complexity.',
+      faqs: [
+        { q: 'Can I add more pages later?', a: 'Yes. You can upgrade to Growth anytime to get more pages and features.' },
+        { q: 'Is SSL included?', a: 'Yes, SSL certificates are included with all plans for secure HTTPS.' },
+        { q: 'How often do you update the site?', a: 'You get 1 content update per month. Additional updates can be purchased separately.' }
+      ]
+    },
     { name: 'Growth', 
       price: '249', 
       listTitle: 'Everything in Starter, plus:',
       description: 'Performance & lead generation for growing businesses', 
       features: ['Up to 10 pages', 'Advanced speed & performance tuning', 'SEO & analytics setup', 'Contact forms & lead routing', '3 content updates per month', 'Monthly site health report', 'Monthly strategy check-in'],
       footerTitle: 'Best for:',
-      footerDesc: 'businesses using their website to attract leads and make regular updates.' },
+      footerDesc: 'businesses using their website to attract leads and make regular updates.',
+      faqs: [
+        { q: 'What does SEO setup include?', a: 'We configure Google Analytics, set up meta tags, create sitemaps, and optimize Core Web Vitals for search visibility.' },
+        { q: 'Can I integrate third-party tools?', a: 'Yes, basic integrations like email signup, CRM connectors, and analytics tools are included.' },
+        { q: 'Is the monthly check-in optional?', a: 'No, monthly strategy check-ins are included to review performance and discuss optimizations.' }
+      ]
+    },
     { name: 'Pro', 
       price: '399', 
       listTitle: 'Everything in Growth, plus:',
       description: 'Advanced security and strategy for enterprises.', 
       features: ['Unlimited pages', 'Priority support', 'Advanced security hardening', 'Backend & database management (PostgreSQL)', 'Automated deployments & zero-downtime updates', 'Integrations & custom workflows', '6 content updates per month'],
       footerTitle: 'Best for:',
-      footerDesc: 'businesses that rely on their website for operations, revenue, or automation.' }
+      footerDesc: 'businesses that rely on their website for operations, revenue, or automation.',
+      faqs: [
+        { q: 'What custom workflows can we build?', a: 'We can build custom automations for lead scoring, payment processing, inventory management, and more.' },
+        { q: 'Is database access included?', a: 'Yes, you get PostgreSQL database management. We handle scaling, backups, and optimization.' },
+        { q: 'How fast is priority support?', a: 'Critical issues get 2-hour response time. Standard issues within 24 hours.' }
+      ]
+    }
   ];
 
   return (
@@ -119,11 +139,20 @@ const Home = ({ tier, setTier, darkMode }) => {
             <div className="col-lg-4 col-md-6" key={plan.name}>
               <div 
                 className="card h-100 shadow-sm transition-all" 
+                onMouseEnter={() => {
+                  setHoveredPlan(plan.name);
+                  setTier(plan.name);
+                }}
+                onMouseLeave={() => setHoveredPlan(null)}
                 style={{ 
                   backgroundColor: 'var(--bg-card)', 
                   borderRadius: '16px', 
-                  border: tier === plan.name ? '2px solid var(--copper)' : '1px solid var(--border-color)',
-                  color: 'var(--text-main)' // Ensures card text flips based on theme
+                  border: tier === plan.name || hoveredPlan === plan.name ? '2px solid var(--copper)' : '1px solid var(--border-color)',
+                  color: 'var(--text-main)',
+                  cursor: 'pointer',
+                  transform: hoveredPlan === plan.name ? 'translateY(-8px)' : 'translateY(0)',
+                  boxShadow: hoveredPlan === plan.name ? '0 12px 24px rgba(0,0,0,0.15)' : 'var(--shadow-sm)',
+                  transition: 'all 0.3s ease'
                 }}
               >
                 <div className="card-body p-4">
@@ -152,6 +181,19 @@ const Home = ({ tier, setTier, darkMode }) => {
                   <div className='mb-4'>
                     <span className="fw-bold" style={{ color: 'var(--text-main)' }}>{plan.footerTitle}</span> {plan.footerDesc}
                   </div>
+
+                  <button 
+                    onClick={() => setSelectedPlanModal(plan.name)}
+                    className="btn w-100 py-2 mb-2" 
+                    style={{ 
+                      backgroundColor: 'transparent',
+                      color: 'var(--copper)', 
+                      border: '2px solid var(--copper)',
+                      fontSize: '0.9rem'
+                    }}
+                  >
+                    Learn More
+                  </button>
 
                   <button 
                     onClick={() => { setTier(plan.name); window.location.href = `/onboarding?tier=${encodeURIComponent(plan.name)}&theme=${darkMode ? 'dark' : 'light'}` }} 
@@ -305,6 +347,113 @@ const Home = ({ tier, setTier, darkMode }) => {
             </div>
         </div>
       </section>
+
+      {/* Plan Details Modal */}
+      {selectedPlanModal && (
+        <div 
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0,0,0,0.5)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 1050,
+            padding: '1rem'
+          }}
+          onClick={() => setSelectedPlanModal(null)}
+        >
+          <div 
+            style={{
+              backgroundColor: 'var(--bg-card)',
+              borderRadius: '16px',
+              maxWidth: '600px',
+              width: '100%',
+              maxHeight: '90vh',
+              overflowY: 'auto',
+              padding: '2rem',
+              color: 'var(--text-main)',
+              border: '1px solid var(--border-color)',
+              boxShadow: '0 20px 60px rgba(0,0,0,0.3)'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+              <h3 style={{ color: 'var(--text-main)', margin: 0 }}>{selectedPlanModal} Plan</h3>
+              <button
+                onClick={() => setSelectedPlanModal(null)}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  fontSize: '1.5rem',
+                  cursor: 'pointer',
+                  color: 'var(--text-muted)',
+                  padding: '0',
+                  width: '2rem',
+                  height: '2rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+              >
+                ✕
+              </button>
+            </div>
+
+            {plans.find(p => p.name === selectedPlanModal) && (
+              <>
+                <div style={{ marginBottom: '2rem', paddingBottom: '1rem', borderBottom: '1px solid var(--border-color)' }}>
+                  <p style={{ color: 'var(--text-muted)', marginBottom: '0.5rem' }}>{plans.find(p => p.name === selectedPlanModal)?.description}</p>
+                  <div style={{ marginTop: '1rem' }}>
+                    <span style={{ color: 'var(--text-main)', fontSize: '2rem', fontWeight: 'bold' }}>
+                      ${plans.find(p => p.name === selectedPlanModal)?.price}
+                    </span>
+                    <span style={{ color: 'var(--text-muted)', marginLeft: '0.5rem' }}>/month</span>
+                  </div>
+                </div>
+
+                <div style={{ marginBottom: '2rem' }}>
+                  <h5 style={{ color: 'var(--text-main)', marginBottom: '1rem', fontWeight: '600' }}>Frequently Asked Questions</h5>
+                  {plans.find(p => p.name === selectedPlanModal)?.faqs.map((faq, idx) => (
+                    <div key={idx} style={{ marginBottom: '1.5rem' }}>
+                      <p style={{ color: 'var(--copper)', fontWeight: '600', marginBottom: '0.5rem', margin: 0 }}>
+                        {faq.q}
+                      </p>
+                      <p style={{ color: 'var(--text-muted)', marginTop: '0.5rem', margin: 0, fontSize: '0.95rem' }}>
+                        {faq.a}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                <button
+                  onClick={() => {
+                    setSelectedPlanModal(null);
+                    setTier(selectedPlanModal);
+                    window.location.href = `/onboarding?tier=${encodeURIComponent(selectedPlanModal)}&theme=${darkMode ? 'dark' : 'light'}`;
+                  }}
+                  style={{
+                    width: '100%',
+                    padding: '1rem',
+                    backgroundColor: 'var(--stone-blue)',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '8px',
+                    fontWeight: '600',
+                    cursor: 'pointer',
+                    fontSize: '1rem'
+                  }}
+                >
+                  Get Started with {selectedPlanModal}
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
       
 
     </div>
