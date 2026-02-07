@@ -4,7 +4,7 @@ import { Shield, Zap, TrendingUp, CheckCircle } from 'lucide-react';
 // Import the renderer. If npm install failed, see the "SafeRender" fallback below.
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 
-const STRAPI_URL = "http://localhost:1337";
+const STRAPI_URL = "http://127.0.0.1:1337";
 
 const Home = ({ tier, setTier, darkMode }) => {
   const [cmsData, setCmsData] = useState({
