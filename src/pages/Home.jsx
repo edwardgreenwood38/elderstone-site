@@ -204,7 +204,7 @@ const Home = ({ tier, setTier, darkMode }) => {
                       border: '2px solid var(--stone-blue)' 
                     }}
                   >
-                    {tier === plan.name ? 'Plan Selected' : `Select ${plan.name}`}
+                    {tier === plan.name ? 'Get Started' : `Get Started`}
                   </button>
                 </div>
               </div>
