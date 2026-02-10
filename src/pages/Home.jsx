@@ -117,7 +117,13 @@ const Home = ({ tier, setTier, darkMode }) => {
           </div>
 
           <div className="d-flex justify-content-center gap-3">
-            <button className="btn btn-lg px-4 py-3 shadow" style={{ backgroundColor: 'var(--copper)', color: 'white', fontWeight: '700' }}>
+            <button className="btn btn-lg px-4 py-3 shadow" style={{ backgroundColor: 'var(--copper)', color: 'white', fontWeight: '700' }} onClick={() => {
+                document.getElementById('pricing')?.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }}
+            >
               Start Your Plan
             </button>
             <button className="btn btn-lg px-4 py-3 btn-outline-light" onClick={() => window.location.href = `/services?theme=${darkMode ? 'dark' : 'light'}`}>
@@ -128,7 +134,7 @@ const Home = ({ tier, setTier, darkMode }) => {
       </section>
 
       {/* Pricing Section - FIXED FOR THEME COMPATIBILITY */}
-      <section className="container py-5 mt-n5">
+      <section id="pricing" className="container py-5 mt-n5">
         <div className="text-center mb-5">
           <h2 className="fw-bold display-5" style={{ color: 'var(--text-main)' }}>Predictable Managed Pricing</h2>
           <p style={{ color: 'var(--text-muted)' }}>No hidden fees. No technical jargon. Just reliable results.</p>
