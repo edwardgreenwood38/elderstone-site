@@ -136,88 +136,182 @@ const Home = ({ tier, setTier, darkMode }) => {
       {/* Pricing Section - FIXED FOR THEME COMPATIBILITY */}
       <section id="pricing" className="container py-5 mt-n5">
         <div className="text-center mb-5">
-          <h2 className="fw-bold display-5" style={{ color: 'var(--text-main)' }}>Predictable Managed Pricing</h2>
-          <p style={{ color: 'var(--text-muted)' }}>No hidden fees. No technical jargon. Just reliable results.</p>
+          <h2 className="fw-bold display-5" style={{ color: 'var(--text-main)' }}>
+            Predictable Managed Pricing
+          </h2>
+          <p style={{ color: 'var(--text-muted)' }}>
+            No hidden fees. No technical jargon. Just reliable results.
+          </p>
         </div>
 
         <div className="row g-4 justify-content-center">
-          {plans.map((plan) => (
-            <div className="col-lg-4 col-md-6" key={plan.name}>
-              <div 
-                className="card h-100 shadow-sm transition-all" 
-                onMouseEnter={() => {
-                  setHoveredPlan(plan.name);
-                  setTier(plan.name);
-                }}
-                onMouseLeave={() => setHoveredPlan(null)}
-                style={{ 
-                  backgroundColor: 'var(--bg-card)', 
-                  borderRadius: '16px', 
-                  border: tier === plan.name || hoveredPlan === plan.name ? '2px solid var(--copper)' : '1px solid var(--border-color)',
-                  color: 'var(--text-main)',
-                  cursor: 'pointer',
-                  transform: hoveredPlan === plan.name ? 'translateY(-8px)' : 'translateY(0)',
-                  boxShadow: hoveredPlan === plan.name ? '0 12px 24px rgba(0,0,0,0.15)' : 'var(--shadow-sm)',
-                  transition: 'all 0.3s ease'
-                }}
-              >
-                <div className="card-body pt-2 pb-4 px-4">
-                  <h3 className="display-6 fw-bold mb-2" style={{ color: 'var(--text-main)' }}>{plan.name}</h3>
-                  <p className="mb-4 fw-bold" style={{ color: 'var(--text-muted)' }}>{plan.description}</p>
-                  
-                  <div className="mb-4">
-                    {/* Use Stone Blue for price in Light mode, but White/Off-White in Dark mode for better contrast */}
-                    <span className="display-4 fw-bold" style={{ color: 'var(--text-main)' }}>${plan.price}</span>
-                    <span style={{ color: 'var(--text-muted)' }}>/mo</span>
+          {plans.map((plan) => {
+            const isComingSoon =
+              plan.name === "Growth" || plan.name === "Pro";
+
+            return (
+              <div className="col-lg-4 col-md-6" key={plan.name}>
+                <div
+                  className="card h-100 shadow-sm transition-all position-relative overflow-hidden"
+                  onMouseEnter={() => {
+                    if (!isComingSoon) {
+                      setHoveredPlan(plan.name);
+                      setTier(plan.name);
+                    }
+                  }}
+                  onMouseLeave={() => setHoveredPlan(null)}
+                  style={{
+                    backgroundColor: "var(--bg-card)",
+                    borderRadius: "16px",
+                    border:
+                      tier === plan.name || hoveredPlan === plan.name
+                        ? "2px solid var(--copper)"
+                        : "1px solid var(--border-color)",
+                    color: "var(--text-main)",
+                    cursor: isComingSoon ? "not-allowed" : "pointer",
+                    transform:
+                      hoveredPlan === plan.name && !isComingSoon
+                        ? "translateY(-8px)"
+                        : "translateY(0)",
+                    boxShadow:
+                      hoveredPlan === plan.name && !isComingSoon
+                        ? "0 12px 24px rgba(0,0,0,0.15)"
+                        : "var(--shadow-sm)",
+                    transition: "all 0.3s ease",
+                    opacity: isComingSoon ? 0.55 : 1,
+                    pointerEvents: isComingSoon ? "none" : "auto",
+                  }}
+                >
+                  {/* DIAGONAL AVAILABLE SOON RIBBON */}
+                  {isComingSoon && (
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: "20px",
+                        left: "-60px",
+                        width: "220px",
+                        textAlign: "center",
+                        transform: "rotate(-35deg)",
+                        backgroundColor: "var(--copper)",
+                        color: "white",
+                        fontWeight: "700",
+                        padding: "6px 0",
+                        fontSize: "0.8rem",
+                        letterSpacing: "0.5px",
+                        zIndex: 10,
+                      }}
+                    >
+                      Available Soon
+                    </div>
+                  )}
+
+                  <div className="card-body pt-2 pb-4 px-4">
+                    <h3 className="display-6 fw-bold mb-2">
+                      {plan.name}
+                    </h3>
+
+                    <p
+                      className="mb-4 fw-bold"
+                      style={{ color: "var(--text-muted)" }}
+                    >
+                      {plan.description}
+                    </p>
+
+                    <div className="mb-4">
+                      <span
+                        className="display-4 fw-bold"
+                        style={{ color: "var(--text-main)" }}
+                      >
+                        ${plan.price}
+                      </span>
+                      <span style={{ color: "var(--text-muted)" }}>
+                        /mo
+                      </span>
+                    </div>
+
+                    <div className="text-start">
+                      <span className="fw-bold">
+                        {plan.listTitle}
+                      </span>
+                    </div>
+
+                    <ul className="list-unstyled mb-2 text-start">
+                      {plan.features.map((f, i) => (
+                        <li
+                          key={i}
+                          className="mb-3 d-flex align-items-start"
+                        >
+                          <CheckCircle
+                            size={18}
+                            className="me-2 mt-1"
+                            style={{
+                              color: "var(--copper)",
+                              flexShrink: 0,
+                            }}
+                          />
+                          <span className="small">{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mb-4">
+                      <span className="fw-bold">
+                        {plan.footerTitle}
+                      </span>{" "}
+                      {plan.footerDesc}
+                    </div>
+
+                    {!isComingSoon && (
+                      <>
+                        <button
+                          onClick={() =>
+                            setSelectedPlanModal(plan.name)
+                          }
+                          className="btn w-100 py-2 mb-2"
+                          style={{
+                            backgroundColor: "transparent",
+                            color: "var(--copper)",
+                            border: "2px solid var(--copper)",
+                            fontSize: "0.9rem",
+                          }}
+                        >
+                          Learn More
+                        </button>
+
+                        <button
+                          onClick={() => {
+                            setTier(plan.name);
+                            window.location.href = `/onboarding?tier=${encodeURIComponent(
+                              plan.name
+                            )}&theme=${
+                              darkMode ? "dark" : "light"
+                            }`;
+                          }}
+                          className="btn w-100 py-3 fw-bold"
+                          style={{
+                            backgroundColor:
+                              tier === plan.name
+                                ? "var(--stone-blue)"
+                                : "transparent",
+                            color:
+                              tier === plan.name
+                                ? "white"
+                                : "var(--stone-blue)",
+                            border: "2px solid var(--stone-blue)",
+                          }}
+                        >
+                          Get Started
+                        </button>
+                      </>
+                    )}
                   </div>
-
-                  <div className='text-start'>
-                    <span className='fw-bold' style={{ color: 'var(--text-main)' }}>{plan.listTitle}</span>
-                  </div>
-
-                  <ul className="list-unstyled mb-2 text-start">
-                    {plan.features.map((f, i) => (
-                      <li key={i} className="mb-3 d-flex align-items-start">
-                        <CheckCircle size={18} className="me-2 mt-1" style={{ color: 'var(--copper)', flexShrink: 0 }} />
-                        <span className="small" style={{ color: 'var(--text-main)' }}>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className='mb-4'>
-                    <span className="fw-bold" style={{ color: 'var(--text-main)' }}>{plan.footerTitle}</span> {plan.footerDesc}
-                  </div>
-
-                  <button 
-                    onClick={() => setSelectedPlanModal(plan.name)}
-                    className="btn w-100 py-2 mb-2" 
-                    style={{ 
-                      backgroundColor: 'transparent',
-                      color: 'var(--copper)', 
-                      border: '2px solid var(--copper)',
-                      fontSize: '0.9rem'
-                    }}
-                  >
-                    Learn More
-                  </button>
-
-                  <button 
-                    onClick={() => { setTier(plan.name); window.location.href = `/onboarding?tier=${encodeURIComponent(plan.name)}&theme=${darkMode ? 'dark' : 'light'}` }} 
-                    className="btn w-100 py-3 fw-bold" 
-                    style={{ 
-                      backgroundColor: tier === plan.name ? 'var(--stone-blue)' : 'transparent', 
-                      color: tier === plan.name ? 'white' : 'var(--stone-blue)', 
-                      border: '2px solid var(--stone-blue)' 
-                    }}
-                  >
-                    {tier === plan.name ? 'Get Started' : `Get Started`}
-                  </button>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
+
 
       {/* Trust Section */}
       <section className="container py-5 text-center border-top">
