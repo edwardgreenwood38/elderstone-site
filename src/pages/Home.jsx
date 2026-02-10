@@ -155,7 +155,7 @@ const Home = ({ tier, setTier, darkMode }) => {
                   transition: 'all 0.3s ease'
                 }}
               >
-                <div className="card-body p-4">
+                <div className="card-body pt-2 pb-4 px-4">
                   <h3 className="display-6 fw-bold mb-2" style={{ color: 'var(--text-main)' }}>{plan.name}</h3>
                   <p className="mb-4 fw-bold" style={{ color: 'var(--text-muted)' }}>{plan.description}</p>
                   
@@ -169,7 +169,7 @@ const Home = ({ tier, setTier, darkMode }) => {
                     <span className='fw-bold' style={{ color: 'var(--text-main)' }}>{plan.listTitle}</span>
                   </div>
 
-                  <ul className="list-unstyled mb-5 text-start">
+                  <ul className="list-unstyled mb-2 text-start">
                     {plan.features.map((f, i) => (
                       <li key={i} className="mb-3 d-flex align-items-start">
                         <CheckCircle size={18} className="me-2 mt-1" style={{ color: 'var(--copper)', flexShrink: 0 }} />
